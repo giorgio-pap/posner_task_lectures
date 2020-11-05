@@ -106,10 +106,10 @@
     <Routine name="fix">
       <CodeComponent name="code">
         <Param name="Begin Experiment" updates="constant" val="import random" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="import * as random from 'random';&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="duration_fixation = (random.randint(500, 1500) / 1000);&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="function getRandomInt(min, max) {&amp;#10;        min = Math.ceil(min);&amp;#10;        max = Math.floor(max);&amp;#10;        return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive&amp;#10;    }&amp;#10;    &amp;#10;duration_fixation = (getRandomInt(500, 1500) / 1000)+&quot;&quot;&amp;#10;" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="duration_fixation = random.randint(500,1500)/1000&amp;#10;#in this example, it picks a random integer between 500&amp;#10;#and 1,500 (ms) and divides it by 1,000 to get the time in seconds." valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
@@ -145,47 +145,6 @@
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
       </PolygonComponent>
     </Routine>
-    <Routine name="feedback">
-      <CodeComponent name="code_2">
-        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="if ((key_resp.keys === corrAns)) {&amp;#10;    msg = &quot;Correct&quot;;&amp;#10;    color_feed = &quot;green&quot;;&amp;#10;} else {&amp;#10;    if ((! key_resp.keys)) {&amp;#10;        msg = &quot;You did not press&quot;;&amp;#10;        color_feed = &quot;red&quot;;&amp;#10;    } else {&amp;#10;        if ((key_resp.keys !== corrAns)) {&amp;#10;            msg = &quot;Wrong&quot;;&amp;#10;            color_feed = &quot;red&quot;;&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="if key_resp.keys == corrAns:&amp;#10;    msg=&quot;Correct&quot;&amp;#10;    color_feed = &quot;green&quot;&amp;#10;elif not key_resp.keys: &amp;#10;    msg=&quot;You did not press&quot;&amp;#10;    color_feed = &quot;red&quot;&amp;#10;elif key_resp.keys != corrAns:&amp;#10;    msg = &quot;Wrong&quot;&amp;#10;    color_feed = &quot;red&quot;&amp;#10;" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="code_2" valType="code"/>
-      </CodeComponent>
-      <TextComponent name="feed_text">
-        <Param name="color" updates="set every repeat" val="$color_feed" valType="str"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="flip" updates="constant" val="" valType="str"/>
-        <Param name="font" updates="constant" val="Arial" valType="str"/>
-        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="100" valType="code"/>
-        <Param name="name" updates="None" val="feed_text" valType="code"/>
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="1" valType="code"/>
-        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="set every repeat" val="$msg" valType="str"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
-      </TextComponent>
-    </Routine>
   </Routines>
   <Flow>
     <LoopInitiator loopType="TrialHandler" name="loop_trials">
@@ -201,7 +160,6 @@
     </LoopInitiator>
     <Routine name="fix"/>
     <Routine name="trial"/>
-    <Routine name="feedback"/>
     <LoopTerminator name="loop_trials"/>
   </Flow>
 </PsychoPy2experiment>

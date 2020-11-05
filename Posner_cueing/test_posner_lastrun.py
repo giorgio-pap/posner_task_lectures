@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.1.2),
-    on Thu 05 Nov 2020 11:30:35 AM CET
+    on Thu 05 Nov 2020 05:35:25 PM CET
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -69,7 +69,7 @@ win = visual.Window(
     winType='pyglet', allowGUI=False, allowStencil=False,
     monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
-    units='deg')
+    units='pix')
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
 if expInfo['frameRate'] != None:
@@ -85,7 +85,7 @@ fixClock = core.Clock()
 import random
 fix_cross = visual.ShapeStim(
     win=win, name='fix_cross', vertices='cross',
-    size=(0.5, 0.5),
+    size=(80, 80),
     ori=0, pos=(0, 0),
     lineWidth=1, lineColor=[1,1,1], lineColorSpace='rgb',
     fillColor=[1,1,1], fillColorSpace='rgb',
@@ -95,14 +95,14 @@ fix_cross = visual.ShapeStim(
 trialClock = core.Clock()
 triangle = visual.ShapeStim(
     win=win, name='triangle',
-    vertices=[[-(2, 4)[0]/2.0,-(2, 4)[1]/2.0], [+(2, 4)[0]/2.0,-(2, 4)[1]/2.0], [0,(2, 4)[1]/2.0]],
+    vertices=[[-(80, 100)[0]/2.0,-(80, 100)[1]/2.0], [+(80, 100)[0]/2.0,-(80, 100)[1]/2.0], [0,(80, 100)[1]/2.0]],
     ori=1.0, pos=(0, 0),
     lineWidth=1, lineColor=[1,1,1], lineColorSpace='rgb',
     fillColor=[1,1,1], fillColorSpace='rgb',
     opacity=1, depth=0.0, interpolate=True)
 box = visual.Rect(
     win=win, name='box',
-    width=(3, 3)[0], height=(3, 3)[1],
+    width=(80, 80)[0], height=(80, 80)[1],
     ori=0, pos=[0,0],
     lineWidth=1, lineColor='MediumSeaGreen', lineColorSpace='rgb',
     fillColor='SeaGreen', fillColorSpace='rgb',
@@ -135,7 +135,7 @@ for thisLoop_trial in loop_trials:
     # ------Prepare to start Routine "fix"-------
     continueRoutine = True
     # update component parameters for each repeat
-    duration_fixation = random.randint(500,150000)/1000
+    duration_fixation = random.randint(500,1500)/1000
     #in this example, it picks a random integer between 500
     #and 1,500 (ms) and divides it by 1,000 to get the time in seconds.
     # keep track of which components have finished

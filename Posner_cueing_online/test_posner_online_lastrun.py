@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.1.2),
-    on Thu 05 Nov 2020 05:36:48 PM CET
+    on Thu 05 Nov 2020 05:31:46 PM CET
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/data/pt_02312/Documenti/PsychoPy_old/Handbook_PsPy/Posner_cueing_solution_GroupA/test_posner_A_lastrun.py',
+    originPath='/data/pt_02312/Documenti/PsychoPy_old/Handbook_PsPy/Posner_cueing_online/test_posner_online_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -108,16 +108,6 @@ box = visual.Rect(
     fillColor='SeaGreen', fillColorSpace='rgb',
     opacity=1, depth=-1.0, interpolate=True)
 key_resp = keyboard.Keyboard()
-
-# Initialize components for Routine "feedback"
-feedbackClock = core.Clock()
-feed_text = visual.TextStim(win=win, name='feed_text',
-    text='default text',
-    font='Arial',
-    pos=(0, 0), height=100, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1, 
-    languageStyle='LTR',
-    depth=-1.0);
 
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
@@ -357,87 +347,6 @@ for thisLoop_trial in loop_trials:
         loop_trials.addData('key_resp.rt', key_resp.rt)
     loop_trials.addData('key_resp.started', key_resp.tStartRefresh)
     loop_trials.addData('key_resp.stopped', key_resp.tStopRefresh)
-    
-    # ------Prepare to start Routine "feedback"-------
-    continueRoutine = True
-    routineTimer.add(1.000000)
-    # update component parameters for each repeat
-    if key_resp.keys == corrAns:
-        msg="Correct"
-        color_feed = "green"
-    elif not key_resp.keys: 
-        msg="You did not press"
-        color_feed = "red"
-    elif key_resp.keys != corrAns:
-        msg = "Wrong"
-        color_feed = "red"
-    
-    feed_text.setColor(color_feed, colorSpace='rgb')
-    feed_text.setText(msg)
-    # keep track of which components have finished
-    feedbackComponents = [feed_text]
-    for thisComponent in feedbackComponents:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    feedbackClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-    frameN = -1
-    
-    # -------Run Routine "feedback"-------
-    while continueRoutine and routineTimer.getTime() > 0:
-        # get current time
-        t = feedbackClock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=feedbackClock)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # *feed_text* updates
-        if feed_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            feed_text.frameNStart = frameN  # exact frame index
-            feed_text.tStart = t  # local t and not account for scr refresh
-            feed_text.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(feed_text, 'tStartRefresh')  # time at next scr refresh
-            feed_text.setAutoDraw(True)
-        if feed_text.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > feed_text.tStartRefresh + 1-frameTolerance:
-                # keep track of stop time/frame for later
-                feed_text.tStop = t  # not accounting for scr refresh
-                feed_text.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(feed_text, 'tStopRefresh')  # time at next scr refresh
-                feed_text.setAutoDraw(False)
-        
-        # check for quit (typically the Esc key)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            core.quit()
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in feedbackComponents:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # -------Ending Routine "feedback"-------
-    for thisComponent in feedbackComponents:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    loop_trials.addData('feed_text.started', feed_text.tStartRefresh)
-    loop_trials.addData('feed_text.stopped', feed_text.tStopRefresh)
     thisExp.nextEntry()
     
 # completed 2 repeats of 'loop_trials'
