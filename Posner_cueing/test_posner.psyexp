@@ -107,8 +107,8 @@
       <CodeComponent name="code">
         <Param name="Begin Experiment" updates="constant" val="import random" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="import * as random from 'random';&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="duration_fixation = (random.randint(500, 150000) / 1000);&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="duration_fixation = random.randint(500,150000)/1000&amp;#10;#in this example, it picks a random integer between 500&amp;#10;#and 1,500 (ms) and divides it by 1,000 to get the time in seconds." valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="duration_fixation = (random.randint(500, 1500) / 1000);&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="duration_fixation = random.randint(500,1500)/1000&amp;#10;#in this example, it picks a random integer between 500&amp;#10;#and 1,500 (ms) and divides it by 1,000 to get the time in seconds." valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
