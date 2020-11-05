@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2020.1.2),
-    on Thu 05 Nov 2020 11:30:35 AM CET
+    on Thu 05 Nov 2020 11:26:39 AM CET
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/data/pt_02312/Documenti/PsychoPy_old/Handbook_PsPy/Posner_cueing/test_posner_lastrun.py',
+    originPath='/data/pt_02312/Documenti/PsychoPy_old/Handbook_PsPy/Posner_cueing/test_posner.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -134,8 +134,9 @@ for thisLoop_trial in loop_trials:
     
     # ------Prepare to start Routine "fix"-------
     continueRoutine = True
+    routineTimer.add(1.500000)
     # update component parameters for each repeat
-    duration_fixation = random.randint(500,150000)/1000
+    duration_fixation = random.randint(500,1500)/1000
     #in this example, it picks a random integer between 500
     #and 1,500 (ms) and divides it by 1,000 to get the time in seconds.
     # keep track of which components have finished
@@ -154,7 +155,7 @@ for thisLoop_trial in loop_trials:
     frameN = -1
     
     # -------Run Routine "fix"-------
-    while continueRoutine:
+    while continueRoutine and routineTimer.getTime() > 0:
         # get current time
         t = fixClock.getTime()
         tThisFlip = win.getFutureFlipTime(clock=fixClock)
@@ -172,7 +173,7 @@ for thisLoop_trial in loop_trials:
             fix_cross.setAutoDraw(True)
         if fix_cross.status == STARTED:
             # is it time to stop? (based on local clock)
-            if tThisFlip > duration_fixation-frameTolerance:
+            if tThisFlip > 1.5-frameTolerance:
                 # keep track of stop time/frame for later
                 fix_cross.tStop = t  # not accounting for scr refresh
                 fix_cross.frameNStop = frameN  # exact frame index
@@ -202,8 +203,6 @@ for thisLoop_trial in loop_trials:
             thisComponent.setAutoDraw(False)
     loop_trials.addData('fix_cross.started', fix_cross.tStartRefresh)
     loop_trials.addData('fix_cross.stopped', fix_cross.tStopRefresh)
-    # the Routine "fix" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
     
     # ------Prepare to start Routine "trial"-------
     continueRoutine = True

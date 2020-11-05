@@ -104,6 +104,21 @@
       </KeyboardComponent>
     </Routine>
     <Routine name="fix">
+      <CodeComponent name="code">
+        <Param name="Begin Experiment" updates="constant" val="import random" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="import * as random from 'random';&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="duration_fixation = (random.randint(500, 150000) / 1000);&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="duration_fixation = random.randint(500,150000)/1000&amp;#10;#in this example, it picks a random integer between 500&amp;#10;#and 1,500 (ms) and divides it by 1,000 to get the time in seconds." valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code" valType="code"/>
+      </CodeComponent>
       <PolygonComponent name="fix_cross">
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
@@ -124,27 +139,27 @@
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="1.5" valType="code"/>
+        <Param name="stopType" updates="None" val="time (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="$duration_fixation" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
       </PolygonComponent>
     </Routine>
   </Routines>
   <Flow>
-    <LoopInitiator loopType="TrialHandler" name="trials">
+    <LoopInitiator loopType="TrialHandler" name="loop_trials">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[{'valid': 1, 'corrAns': 'right', 'cueOri': 90, 'targetX': 7, 'cueSide': 'right'}, {'valid': 1, 'corrAns': 'right', 'cueOri': 90, 'targetX': 7, 'cueSide': 'right'}, {'valid': 1, 'corrAns': 'right', 'cueOri': 90, 'targetX': 7, 'cueSide': 'right'}, {'valid': 1, 'corrAns': 'right', 'cueOri': 90, 'targetX': 7, 'cueSide': 'right'}, {'valid': 1, 'corrAns': 'left', 'cueOri': -90, 'targetX': -7, 'cueSide': 'left'}, {'valid': 1, 'corrAns': 'left', 'cueOri': -90, 'targetX': -7, 'cueSide': 'left'}, {'valid': 1, 'corrAns': 'left', 'cueOri': -90, 'targetX': -7, 'cueSide': 'left'}, {'valid': 1, 'corrAns': 'left', 'cueOri': -90, 'targetX': -7, 'cueSide': 'left'}, {'valid': 0, 'corrAns': 'right', 'cueOri': -90, 'targetX': 7, 'cueSide': 'left'}, {'valid': 0, 'corrAns': 'left', 'cueOri': 90, 'targetX': -7, 'cueSide': 'right'}]" valType="str"/>
       <Param name="conditionsFile" updates="None" val="Posner_cueing.xlsx" valType="str"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>
-      <Param name="nReps" updates="None" val="5" valType="code"/>
-      <Param name="name" updates="None" val="trials" valType="code"/>
+      <Param name="nReps" updates="None" val="2" valType="code"/>
+      <Param name="name" updates="None" val="loop_trials" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
     <Routine name="fix"/>
     <Routine name="trial"/>
-    <LoopTerminator name="trials"/>
+    <LoopTerminator name="loop_trials"/>
   </Flow>
 </PsychoPy2experiment>
