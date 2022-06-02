@@ -1,0 +1,52 @@
+0.2581 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+4.7567 	WARNING 	User requested fullscreen with size [1680 1050], but screen is actually [1440, 900]. Using actual size
+5.4520 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0., 0., 0.]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7fc0c2c92cf8>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7fc0c2f19f60>, multiSample=False, name='window1', numSamples=2, pos=[360.0, 225.0], screen=0, size=array([2880, 1800]), stencilBits=0, stereo=False, units='pix', useFBO=True, useRetina=True, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+5.4524 	EXP 	window1: mouseVisible = True
+5.4524 	EXP 	window1: recordFrameIntervals = False
+5.6188 	EXP 	window1: recordFrameIntervals = True
+5.8018 	EXP 	window1: recordFrameIntervals = False
+6.2926 	EXP 	Created fix_cross = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, autoDraw=False, autoLog=True, closeShape=True, contrast=1.0, depth=-1.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineWidth=1, name='fix_cross', opacity=1.0, ori=array(0.), pos=array([0., 0.]), size=array([80., 80.]), units='pix', vertices=ndarray(...), win=Window(...), windingRule=None)
+6.2934 	EXP 	Created triangle = ShapeStim(__class__=<class 'psychopy.visual.shape.ShapeStim'>, autoDraw=False, autoLog=True, closeShape=True, contrast=1.0, depth=0.0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineWidth=1, name='triangle', opacity=1.0, ori=array(1.), pos=array([0., 0.]), size=array([1., 1.]), units='pix', vertices=ndarray(...), win=Window(...), windingRule=None)
+6.2940 	EXP 	Created box = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-1.0, fillColor='SeaGreen', fillColorSpace='named', fillRGB=array([ 46., 139.,  87.]), interpolate=True, lineColor='MediumSeaGreen', lineColorSpace='named', lineRGB=array([ 60., 179., 113.]), lineWidth=1, name='box', opacity=1.0, ori=array(0.), pos=array([0., 0.]), size=array([80., 80.]), units='pix', vertices=ndarray(...), win=Window(...))
+6.7783 	EXP 	Imported Posner_cueing.xlsx as conditions, 10 conditions, 5 params
+6.7786 	EXP 	Created sequence: random, trialTypes=10, nReps=2, seed=None
+6.7788 	EXP 	New trial (rep=0, index=0): OrderedDict([('cueSide', 'left'), ('cueOri', -90), ('targetX', -300), ('corrAns', 'left'), ('valid', 1)])
+6.7848 	EXP 	fix_cross: autoDraw = True
+7.8861 	EXP 	fix_cross: autoDraw = False
+7.8861 	EXP 	fix_cross: autoDraw = False
+7.8861 	EXP 	triangle: ori = -90.0
+7.8861 	EXP 	box: pos = array([-300.,    0.])
+7.8861 	EXP 	triangle: autoDraw = True
+8.0689 	EXP 	box: autoDraw = True
+8.0850 	EXP 	triangle: autoDraw = False
+8.8551 	EXP 	New trial (rep=0, index=1): OrderedDict([('cueSide', 'right'), ('cueOri', 90), ('targetX', 300), ('corrAns', 'right'), ('valid', 1)])
+8.8683 	EXP 	box: autoDraw = False
+8.8683 	EXP 	triangle: autoDraw = False
+8.8683 	EXP 	box: autoDraw = False
+8.8683 	EXP 	fix_cross: autoDraw = True
+9.9526 	EXP 	fix_cross: autoDraw = False
+9.9526 	EXP 	fix_cross: autoDraw = False
+9.9526 	EXP 	triangle: ori = 90.0
+9.9526 	EXP 	box: pos = array([300.,   0.])
+9.9526 	EXP 	triangle: autoDraw = True
+10.1354 	EXP 	box: autoDraw = True
+10.1525 	EXP 	triangle: autoDraw = False
+10.9208 	EXP 	New trial (rep=0, index=2): OrderedDict([('cueSide', 'right'), ('cueOri', 90), ('targetX', 300), ('corrAns', 'right'), ('valid', 1)])
+10.9359 	EXP 	box: autoDraw = False
+10.9359 	EXP 	triangle: autoDraw = False
+10.9359 	EXP 	box: autoDraw = False
+10.9359 	EXP 	fix_cross: autoDraw = True
+12.0195 	EXP 	fix_cross: autoDraw = False
+12.0195 	EXP 	fix_cross: autoDraw = False
+12.0195 	EXP 	triangle: ori = 90.0
+12.0195 	EXP 	box: pos = array([300.,   0.])
+12.0195 	EXP 	triangle: autoDraw = True
+12.2017 	EXP 	box: autoDraw = True
+12.2359 	EXP 	triangle: autoDraw = False
+12.9872 	EXP 	New trial (rep=0, index=3): OrderedDict([('cueSide', 'right'), ('cueOri', 90), ('targetX', 300), ('corrAns', 'right'), ('valid', 1)])
+13.0032 	EXP 	box: autoDraw = False
+13.0032 	EXP 	triangle: autoDraw = False
+13.0032 	EXP 	box: autoDraw = False
+13.0032 	EXP 	fix_cross: autoDraw = True
+13.3693 	DATA 	Keypress: escape
+13.5072 	EXP 	window1: mouseVisible = True

@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" ?>
-<PsychoPy2experiment encoding="utf-8" version="2020.1.2">
+<PsychoPy2experiment encoding="utf-8" version="2020.2.10">
   <Settings>
     <Param name="Audio latency priority" updates="None" val="use prefs" valType="str"/>
     <Param name="Audio lib" updates="None" val="use prefs" valType="str"/>
     <Param name="Completed URL" updates="None" val="" valType="str"/>
+    <Param name="Data file delimiter" updates="None" val="auto" valType="str"/>
     <Param name="Data filename" updates="None" val="u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])" valType="code"/>
     <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
     <Param name="Experiment info" updates="None" val="{'session': '001', 'participant': ''}" valType="code"/>
@@ -14,6 +15,7 @@
     <Param name="JS libs" updates="None" val="packaged" valType="str"/>
     <Param name="Monitor" updates="None" val="testMonitor" valType="str"/>
     <Param name="OSF Project ID" updates="None" val="" valType="str"/>
+    <Param name="Resources" updates="None" val="[]" valType="fileList"/>
     <Param name="Save csv file" updates="None" val="False" valType="bool"/>
     <Param name="Save excel file" updates="None" val="False" valType="bool"/>
     <Param name="Save log file" updates="None" val="True" valType="bool"/>
@@ -80,7 +82,7 @@
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.2" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="1.0" valType="code"/>
+        <Param name="stopVal" updates="constant" val="1" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
       </PolygonComponent>
@@ -104,21 +106,6 @@
       </KeyboardComponent>
     </Routine>
     <Routine name="fix">
-      <CodeComponent name="code">
-        <Param name="Begin Experiment" updates="constant" val="import random" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="import * as random from 'random';&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="duration_fixation = (random.randint(500, 1500) / 1000);&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="duration_fixation = random.randint(500,1500)/1000&amp;#10;#in this example, it picks a random integer between 500&amp;#10;#and 1,500 (ms) and divides it by 1,000 to get the time in seconds." valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="code" valType="code"/>
-      </CodeComponent>
       <PolygonComponent name="fix_cross">
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
@@ -145,8 +132,28 @@
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
       </PolygonComponent>
     </Routine>
+    <Routine name="code_fix">
+      <CodeComponent name="code_2">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="import random" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="import * as random from 'random';&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="duration_fixation = (random.randint(500, 1500) / 1000);&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="duration_fixation = random.randint(500,1500)/1000&amp;#10;#in this example, it picks a random integer between 500&amp;#10;#and 1,500 (ms) and divides it by 1,000 to get the time in seconds." valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code_2" valType="code"/>
+      </CodeComponent>
+    </Routine>
   </Routines>
   <Flow>
+    <Routine name="code_fix"/>
     <LoopInitiator loopType="TrialHandler" name="loop_trials">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[{'valid': 1, 'corrAns': 'right', 'cueOri': 90, 'targetX': 7, 'cueSide': 'right'}, {'valid': 1, 'corrAns': 'right', 'cueOri': 90, 'targetX': 7, 'cueSide': 'right'}, {'valid': 1, 'corrAns': 'right', 'cueOri': 90, 'targetX': 7, 'cueSide': 'right'}, {'valid': 1, 'corrAns': 'right', 'cueOri': 90, 'targetX': 7, 'cueSide': 'right'}, {'valid': 1, 'corrAns': 'left', 'cueOri': -90, 'targetX': -7, 'cueSide': 'left'}, {'valid': 1, 'corrAns': 'left', 'cueOri': -90, 'targetX': -7, 'cueSide': 'left'}, {'valid': 1, 'corrAns': 'left', 'cueOri': -90, 'targetX': -7, 'cueSide': 'left'}, {'valid': 1, 'corrAns': 'left', 'cueOri': -90, 'targetX': -7, 'cueSide': 'left'}, {'valid': 0, 'corrAns': 'right', 'cueOri': -90, 'targetX': 7, 'cueSide': 'left'}, {'valid': 0, 'corrAns': 'left', 'cueOri': 90, 'targetX': -7, 'cueSide': 'right'}]" valType="str"/>

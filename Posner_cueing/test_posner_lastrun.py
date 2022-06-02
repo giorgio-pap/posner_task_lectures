@@ -1,8 +1,8 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v2020.1.2),
-    on Thu 05 Nov 2020 05:35:25 PM CET
+This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
+    on Mon Jan 25 11:14:40 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -35,7 +35,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-psychopyVersion = '2020.1.2'
+psychopyVersion = '2020.2.10'
 expName = 'test_posner'  # from the Builder filename that created this script
 expInfo = {'session': '001', 'participant': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/data/pt_02312/Documenti/PsychoPy_old/Handbook_PsPy/Posner_cueing/test_posner_lastrun.py',
+    originPath='/Users/giorgiopapitto/Documents/GitHub/posner_task_lectures/Posner_cueing/test_posner_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -61,7 +61,7 @@ logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a f
 endExpNow = False  # flag for 'escape' or other condition => quit the exp
 frameTolerance = 0.001  # how close to onset before 'same' frame
 
-# Start Code - component code to be run before the window creation
+# Start Code - component code to be run after the window creation
 
 # Setup the Window
 win = visual.Window(
@@ -80,9 +80,12 @@ else:
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard()
 
+# Initialize components for Routine "code_fix"
+code_fixClock = core.Clock()
+import random
+
 # Initialize components for Routine "fix"
 fixClock = core.Clock()
-import random
 fix_cross = visual.ShapeStim(
     win=win, name='fix_cross', vertices='cross',
     size=(80, 80),
@@ -113,6 +116,60 @@ key_resp = keyboard.Keyboard()
 globalClock = core.Clock()  # to track the time since experiment started
 routineTimer = core.CountdownTimer()  # to track time remaining of each (non-slip) routine 
 
+# ------Prepare to start Routine "code_fix"-------
+continueRoutine = True
+# update component parameters for each repeat
+duration_fixation = random.randint(500,1500)/1000
+#in this example, it picks a random integer between 500
+#and 1,500 (ms) and divides it by 1,000 to get the time in seconds.
+# keep track of which components have finished
+code_fixComponents = []
+for thisComponent in code_fixComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+code_fixClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "code_fix"-------
+while continueRoutine:
+    # get current time
+    t = code_fixClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=code_fixClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in code_fixComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "code_fix"-------
+for thisComponent in code_fixComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+# the Routine "code_fix" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
 # set up handler to look after randomisation of conditions etc
 loop_trials = data.TrialHandler(nReps=2, method='random', 
     extraInfo=expInfo, originPath=-1,
@@ -135,9 +192,11 @@ for thisLoop_trial in loop_trials:
     # ------Prepare to start Routine "fix"-------
     continueRoutine = True
     # update component parameters for each repeat
-    duration_fixation = random.randint(500,1500)/1000
-    #in this example, it picks a random integer between 500
-    #and 1,500 (ms) and divides it by 1,000 to get the time in seconds.
+    time_trial = 1 + duration_fixation
+    
+    timer = core.CountdownTimer(time_trial)
+    
+    
     # keep track of which components have finished
     fixComponents = [fix_cross]
     for thisComponent in fixComponents:
@@ -207,7 +266,7 @@ for thisLoop_trial in loop_trials:
     
     # ------Prepare to start Routine "trial"-------
     continueRoutine = True
-    routineTimer.add(1.200000)
+    routineTimer.add(1.000000)
     # update component parameters for each repeat
     triangle.setOri(cueOri)
     box.setPos((targetX, 0))
@@ -265,7 +324,7 @@ for thisLoop_trial in loop_trials:
             box.setAutoDraw(True)
         if box.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > box.tStartRefresh + 1.0-frameTolerance:
+            if tThisFlipGlobal > box.tStartRefresh + 0.8-frameTolerance:
                 # keep track of stop time/frame for later
                 box.tStop = t  # not accounting for scr refresh
                 box.frameNStop = frameN  # exact frame index
@@ -287,7 +346,7 @@ for thisLoop_trial in loop_trials:
             win.callOnFlip(key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if key_resp.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > key_resp.tStartRefresh + 1-frameTolerance:
+            if tThisFlipGlobal > key_resp.tStartRefresh + 0.8-frameTolerance:
                 # keep track of stop time/frame for later
                 key_resp.tStop = t  # not accounting for scr refresh
                 key_resp.frameNStop = frameN  # exact frame index
@@ -304,8 +363,8 @@ for thisLoop_trial in loop_trials:
                     key_resp.corr = 1
                 else:
                     key_resp.corr = 0
-                # a response ends the routine
-                continueRoutine = False
+        if timer.getTime() == 0:
+               print("cacca")
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -357,7 +416,7 @@ for thisLoop_trial in loop_trials:
 win.flip()
 
 # these shouldn't be strictly necessary (should auto-save)
-thisExp.saveAsWideText(filename+'.csv')
+thisExp.saveAsWideText(filename+'.csv', delim='auto')
 thisExp.saveAsPickle(filename)
 logging.flush()
 # make sure everything is closed down

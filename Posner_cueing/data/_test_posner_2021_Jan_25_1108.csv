@@ -1,0 +1,3 @@
+﻿cueSide,cueOri,targetX,corrAns,valid,loop_trials.thisRepN,loop_trials.thisTrialN,loop_trials.thisN,loop_trials.thisIndex,fix_cross.started,fix_cross.stopped,triangle.started,triangle.stopped,box.started,box.stopped,key_resp.keys,key_resp.corr,key_resp.started,key_resp.stopped,session,participant,date,expName,psychopyVersion,frameRate,
+right,90,300,right,1,0,0,0,2,7.632818749989383,None,9.051322249986697,9.250875832978636,9.245714040996972,None,None,0,9.245714040996972,None,001,,2021_Jan_25_1108,test_posner,2020.2.10,60.06031544723333,
+right,90,300,right,1,0,1,1,0,10.051644082996063,None,11.518197165976744,11.717619540984742,11.70123716595117,None,None,0,11.70123716595117,None,001,,2021_Jan_25_1108,test_posner,2020.2.10,60.06031544723333,
